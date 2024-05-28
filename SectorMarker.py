@@ -22,6 +22,7 @@ class SectorMarker:
                                           self.full_zone_radius * np.sin(angle_rad))).astype('int'))
 
     def draw_sectors(self, img: np.ndarray):
+        print(self.center_pos)
         img = cv2.circle(img, self.center_pos, 45, (0, 255, 0), thickness=2)
         img = cv2.circle(img, self.center_pos, 128, (0, 255, 0), thickness=2)
         img = cv2.circle(img, self.center_pos, 225, (0, 255, 0), thickness=2)

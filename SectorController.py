@@ -24,6 +24,9 @@ class SectorController:
         SectorController.prev_rect = np.asarray(((x, y), (x + w, y), (x, y + w), (x + w, y + h)))
         return SectorController.prev_rect
 
+    def set_ignore_frames(self, ignore_frames):
+        self.ignore_frames_before = ignore_frames
+
     def new_frame(self, sector_numbers: np.ndarray):
         is_on_periphery: bool = False
         intersect_periphery: bool = False
@@ -66,8 +69,8 @@ class SectorController:
         self.prev_sectors = sector_numbers
 
     def print_info(self):
-        print(f"num_of_sector_intersections: {self.num_of_sector_intersections}\n"
-              f"time_at_rest: {round(self.time_at_rest / self.fps)}\n"
-              f"time_on_periphery: {round(self.time_on_periphery / self.fps)}\n"
-              f"time_in_center: {round(self.time_in_center / self.fps)}\n"
-              f"time_total: {round(self.frame_counter / self.fps)}")
+        print(f"Кол-во пересечённых секторов: {self.num_of_sector_intersections}\n"
+              f"Время в покое: {round(self.time_at_rest / self.fps)}\n"
+              f"Время на переферии: {round(self.time_on_periphery / self.fps)}\n"
+              f"Время в центре: {round(self.time_in_center / self.fps)}\n"
+              f"Общее время: {round(self.frame_counter / self.fps)}")

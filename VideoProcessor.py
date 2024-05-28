@@ -19,7 +19,7 @@ class VideoProcessor:
 
         ret, frame = cap.read()
         if ret:
-            sectorMarker.draw_sectors(frame)
+            self.sectorMarker.draw_sectors(frame)
             return frame
 
     def process_video(self, path_to_input_video: str, batch_size: int = 32,
